@@ -3,9 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node server.ts"
+    "server": "ts-node-esm server/server.ts",
+    "migrate:make": "knex --knexfile ./knexfile.ts migrate:make",
+    "migrate:latest": "knex --knexfile ./knexfile.ts migrate:latest",
+    "migrate:rollback": "knex --knexfile ./knexfile.ts migrate:rollback"
   },
   "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
     "express": "4.18.2",
     "knex": "^2.4.2",
     "objection": "^3.0.1",

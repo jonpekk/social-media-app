@@ -1,13 +1,12 @@
 import type { Knex } from "knex";
+import getDatabaseUrl from "./server/src/config/getDatabaseUrl";
 
 // Update with your config settings.
 
 const config: { [key: string]: Knex.Config } = {
   development: {
-    client: "sqlite3",
-    connection: {
-      filename: "./dev.sqlite3"
-    },
+    client: "postgresql",
+    connection: getDatabaseUrl(process.env.NODE_ENV || "development"),
 
     migrations: {
       directory: "./server/src/db/migrations"
@@ -16,11 +15,7 @@ const config: { [key: string]: Knex.Config } = {
 
   staging: {
     client: "postgresql",
-    connection: {
-      database: "my_db",
-      user: "username",
-      password: "password"
-    },
+    connection: getDatabaseUrl(process.env.NODE_ENV || "development"),
     pool: {
       min: 2,
       max: 10
@@ -33,11 +28,7 @@ const config: { [key: string]: Knex.Config } = {
 
   production: {
     client: "postgresql",
-    connection: {
-      database: "social-media-app-database",
-      user: "username",
-      password: "password"
-    },
+    connection: getDatabaseUrl(process.env.NODE_ENV || "development"),
     pool: {
       min: 2,
       max: 10
