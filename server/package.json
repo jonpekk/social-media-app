@@ -3,22 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "server": "ts-node-esm server/server.ts",
+    "server": "ts-node-esm server.ts",
     "migrate:make": "knex --knexfile ./knexfile.ts migrate:make",
     "migrate:latest": "knex --knexfile ./knexfile.ts migrate:latest",
     "migrate:rollback": "knex --knexfile ./knexfile.ts migrate:rollback"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.0.1",
     "@babel/plugin-transform-modules-commonjs": "^7.21.2",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
-    "express": "4.18.2",
+    "express": "^4.18.2",
+    "express-openid-connect": "^2.16.0",
     "knex": "^2.4.2",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.1",
     "objection": "^3.0.1",
     "pg": "^8.9.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "sass": "^1.57.1",
+    "sort-by": "^1.2.0",
     "sqlite3": "^5.1.4"
   },
   "devDependencies": {

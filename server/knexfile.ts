@@ -1,5 +1,5 @@
 import type { Knex } from "knex";
-import getDatabaseUrl from "./server/src/config/getDatabaseUrl";
+import getDatabaseUrl from "./src/config/getDatabaseUrl";
 
 // Update with your config settings.
 
