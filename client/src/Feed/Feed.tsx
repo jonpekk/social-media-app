@@ -4,6 +4,7 @@ import { createTheme } from "@mui/material/styles";
 import { lightThemeColors } from '@/src/theme/utils/themeColors';
 import Post from "./Post/Post";
 import { Grid, Typography } from '@mui/material'
+import { PostData } from "@/types/post";
 
 const {
   primaryWhite
@@ -18,7 +19,8 @@ const feedTheme = createTheme({
   }
 })
 
-function Feed() {
+function Feed({ posts }: { posts: PostData[] }) {
+
   return (
     <>
       <ThemeProvider theme={feedTheme}>
@@ -28,14 +30,18 @@ function Feed() {
           justifyContent="center"
           py={2}
         >
-          <Grid xs={6}>
+          <Grid item xs={6}>
             <Typography variant="h4" component="h2">
               Your Feed
             </Typography>
           </Grid>
-          <Post />
-          <Post />
-          <Post />
+          {
+            posts.map(post => {
+              return (
+                <Post data={post} key={post.id} />
+              )
+            })
+          }
         </Grid>
       </ThemeProvider>
     </>

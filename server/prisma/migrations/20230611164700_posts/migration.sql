@@ -6,6 +6,7 @@ CREATE TABLE "Post" (
     "content" TEXT,
     "published" BOOLEAN NOT NULL DEFAULT false,
     "authorId" INTEGER NOT NULL,
+    "authorHandle" TEXT NOT NULL,
 
     CONSTRAINT "Post_pkey" PRIMARY KEY ("id")
 );
@@ -14,7 +15,8 @@ CREATE TABLE "Post" (
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
-    "name" TEXT,
+    "userName" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -22,5 +24,11 @@ CREATE TABLE "User" (
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
+-- CreateIndex
+CREATE UNIQUE INDEX "User_userName_key" ON "User"("userName");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_id_userName_key" ON "User"("id", "userName");
+
 -- AddForeignKey
-ALTER TABLE "Post" ADD CONSTRAINT "Post_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Post" ADD CONSTRAINT "Post_authorId_authorHandle_fkey" FOREIGN KEY ("authorId", "authorHandle") REFERENCES "User"("id", "userName") ON DELETE RESTRICT ON UPDATE CASCADE;

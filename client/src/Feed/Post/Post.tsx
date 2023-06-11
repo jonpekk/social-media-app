@@ -1,6 +1,7 @@
 import { Card, Grid, Avatar } from '@mui/material'
 import { containerPadding } from '@/src/theme/utils/spacing';
 import { mdBoldText, smLightText } from '@/src/theme/utils/fonts';
+import { PostData } from '@/types/post';
 
 
 const PostBody = ({ children }: {
@@ -15,7 +16,7 @@ const PostBody = ({ children }: {
   </Grid>
 );
 
-function Post() {
+function Post({ data }: { data: PostData }) {
   return (
     <Grid
       item
@@ -37,20 +38,20 @@ function Post() {
           }}
         >
           <Grid item xs={2} sm={2} md={1}>
-            <Avatar>OP</Avatar>
+            <Avatar>{data.authorHandle[0].toUpperCase()}</Avatar>
           </Grid>
           <Grid item xs={9} sm={10} md={10}>
             <Grid container spacing={2} alignItems="center">
               <Grid item sx={mdBoldText}>
-                Username
+                {data.authorHandle}
               </Grid>
               <Grid item sx={smLightText}>
-                01/01/2000
+                {new Date(data.createdAt).toLocaleDateString()}
               </Grid>
             </Grid>
             <PostBody>
               <Grid item>
-                Now I need to clean this up to make sure that the components are separated in a way that makes sense
+                {data.content}
               </Grid>
             </PostBody>
           </Grid>
