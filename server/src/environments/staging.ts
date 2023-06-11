@@ -1,6 +1,6 @@
 import getNodeEnv from "../config/getNodeEnv";
 
-if (getNodeEnv() === "test") {
+if (getNodeEnv() === "staging") {
   // development specific middlewares here
 
 }
