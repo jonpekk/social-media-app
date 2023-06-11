@@ -8,6 +8,7 @@ async function main() {
     create: {
       email: 'test@test.com',
       name: 'Jon',
+      userName: 'jonpekk',
       posts: {
         create: [
           {
