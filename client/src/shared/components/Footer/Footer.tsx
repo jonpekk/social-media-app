@@ -1,38 +1,31 @@
 'use client'
 import { Box, Container, Typography, Avatar } from "@mui/material"
 
-const navContainer = {
+const footerContainer = {
   backgroundColor: 'primary.main',
   color: 'secondary.main'
 }
 
-const navBodyContainer = {
+const footerBodyContainer = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  height: 50,
   px: {
     xs: 2,
     md: 5
   },
 }
 
-const mainHeader = {
-  fontSize: 20,
-  fontWeight: 700
-}
-
-function Nav() {
+function Footer() {
   return (
-    <Box sx={navContainer}>
-      <Container sx={navBodyContainer}>
-        <Typography component='h1' sx={mainHeader}>
-          pSocial
+    <Box sx={footerContainer}>
+      <Container sx={footerBodyContainer}>
+        <Typography component='p'>
+          App created by Jon Pekkarinen @jonpekk
         </Typography>
-        <Avatar>X</Avatar>
       </Container>
     </Box>
   )
 }
 
-export default Nav
+export default Footer
