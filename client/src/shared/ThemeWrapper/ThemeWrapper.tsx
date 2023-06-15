@@ -11,12 +11,8 @@ function ThemeWrapper({ children }: {
 }) {
   return (
     <ThemeProvider theme={lightTheme}>
-      <Container fixed sx={{
-        py: 1
-      }}>
-        <CssBaseline />
-        {children}
-      </Container>
+      <CssBaseline />
+      {children}
     </ThemeProvider >
   )
 }

@@ -18,11 +18,6 @@ function Components() {
       <PrimaryButton>
         Primary Action
       </PrimaryButton>
-      <Grid item xs={12} sm={6} md={4}>
-        <CardContainer>
-          <Feed />
-        </CardContainer>
-      </Grid>
     </>
   )
 }

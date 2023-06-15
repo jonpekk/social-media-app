@@ -1,6 +1,8 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import ThemeWrapper from '@/src/shared/ThemeWrapper/ThemeWrapper'
+import MainContentContainer from '@/src/shared/MainContentContainer/MainContentContainer'
+import Nav from '@/src/shared/components/Nav'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +20,12 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ThemeWrapper>
-          {children}
+          <header>
+            <Nav />
+          </header>
+          <MainContentContainer>
+            {children}
+          </MainContentContainer>
         </ThemeWrapper>
       </body>
     </html>
