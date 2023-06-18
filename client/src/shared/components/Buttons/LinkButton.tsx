@@ -2,10 +2,10 @@
 import { Button, ButtonProps } from "@mui/material";
 import { ReactNode } from "react";
 
-function PrimaryButton(props: ButtonProps) {
+function LinkButton(props: ButtonProps) {
   return (
     <Button
-      variant='contained'
+      variant='text'
       {...props}
     >
       {props.children}
@@ -13,4 +13,4 @@ function PrimaryButton(props: ButtonProps) {
   )
 }
 
-export default PrimaryButton
+export default LinkButton

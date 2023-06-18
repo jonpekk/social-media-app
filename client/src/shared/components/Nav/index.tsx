@@ -1,5 +1,7 @@
 'use client'
 import { Box, Container, Typography, Avatar } from "@mui/material"
+import { useAuth0 } from "@auth0/auth0-react"
+import LinkButton from "../Buttons/LinkButton"
 
 const navContainer = {
   backgroundColor: 'primary.main',
@@ -23,13 +25,28 @@ const mainHeader = {
 }
 
 function Nav() {
+
+  const {
+    user,
+    isAuthenticated,
+    loginWithRedirect,
+    logout
+  } = useAuth0()
+
+  console.log(isAuthenticated)
+
   return (
     <Box sx={navContainer}>
       <Container sx={navBodyContainer}>
         <Typography component='h1' sx={mainHeader}>
           pSocial
         </Typography>
-        <Avatar>X</Avatar>
+        {
+          isAuthenticated ?
+            <LinkButton color="secondary" onClick={() => logout()}>Logout</LinkButton> :
+            <LinkButton color="secondary" onClick={() => loginWithRedirect()}>Login</LinkButton>
+        }
+        {/* <Avatar>X</Avatar> */}
       </Container>
     </Box>
   )

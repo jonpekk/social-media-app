@@ -1,16 +1,15 @@
 'use client'
 import React, { ReactNode } from 'react';
-import Button from '@mui/material/Button';
+import { Button, ButtonProps } from '@mui/material';
 
-function DangerButton({ children }: {
-  children: ReactNode
-}) {
+function DangerButton(props: ButtonProps) {
   return (
     <Button
       color='error'
       variant='contained'
+      {...props}
     >
-      {children}
+      {props.children}
     </Button>
   )
 }

@@ -4,6 +4,8 @@ import ThemeWrapper from '@/src/shared/ThemeWrapper/ThemeWrapper'
 import MainContentContainer from '@/src/shared/MainContentContainer/MainContentContainer'
 import Nav from '@/src/shared/components/Nav'
 import Footer from '@/src/shared/components/Footer/Footer'
+import AuthWrapper from '@/src/shared/AuthWrapper/AuthWrapper'
+import UserWrapper from '@/src/shared/UserWrapper/UserWrapper'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,17 +22,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeWrapper>
-          <header>
-            <Nav />
-          </header>
-          <MainContentContainer>
-            {children}
-          </MainContentContainer>
-          <footer>
-            <Footer />
-          </footer>
-        </ThemeWrapper>
+        <AuthWrapper>
+          <UserWrapper>
+            <ThemeWrapper>
+              <header>
+                <Nav />
+              </header>
+              <MainContentContainer>
+                {children}
+              </MainContentContainer>
+              <footer>
+                <Footer />
+              </footer>
+            </ThemeWrapper>
+          </UserWrapper>
+        </AuthWrapper>
       </body>
     </html>
   )
